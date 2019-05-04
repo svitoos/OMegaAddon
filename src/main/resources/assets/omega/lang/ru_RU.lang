@@ -1,0 +1,10 @@
+item.advanced_geolyzer.name=Улучшение Продвинутый Геоанализатор
+item.upgrade_advanced_solar_panel.name=Улучшение Продвинутая Солнечная Панель
+item.upgrade_hybrid_solar_panel.name=Улучшение Гибридная Солнечная Панель
+item.upgrade_ultimate_solar_panel.name=Улучшение Ультимейт Солнечная Панель
+item.upgrade_quantum_solar_panel.name=Улучшение Квантовая Солнечная Панель
+item.upgrade_tool_charger.name=Улучшение Зарядник Инструмента
+lore.tier.name=Уровень:
+lore.day_output.name=Дневной выход Энергии:
+lore.night_output.name=Ночной выход Энергии:
+lore.can_charge.name=Может ли заряжать инструмент?
