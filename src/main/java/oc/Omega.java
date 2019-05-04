@@ -11,7 +11,7 @@ public class Omega {
 
     public static final String MOD_ID = "omega";
     public static final String MOD_NAME = "Omega";
-    public static final String MOD_VERSION = "0.11.0";
+    public static final String MOD_VERSION = "0.12.0";
     public static Config config;
 
     @Mod.EventHandler
