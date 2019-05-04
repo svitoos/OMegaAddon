@@ -8,3 +8,6 @@ lore.tier.name=Уровень:
 lore.day_output.name=Дневной выход Энергии:
 lore.night_output.name=Ночной выход Энергии:
 lore.can_charge.name=Может ли заряжать инструмент?
+lore.geolyzer_tier.name=Уровень:
+lore.geolyzer_scan_cost.name=Стоимость сканирования:
+lore.geolyzer_radius.name=Радиус:

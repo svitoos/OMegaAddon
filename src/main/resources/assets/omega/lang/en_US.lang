@@ -8,3 +8,6 @@ lore.tier.name=Tier:
 lore.day_output.name=Day energy Output:
 lore.night_output.name=Night energy Output:
 lore.can_charge.name=Can charge tools?
+lore.geolyzer_tier.name=Tier:
+lore.geolyzer_scan_cost.name=Scan Cost:
+lore.geolyzer_radius.name=Radius:
