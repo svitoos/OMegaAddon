@@ -12,6 +12,8 @@ public class Drivers {
         API.driver.add((Item)Items.hybrid_solar_panel);
         API.driver.add((Item)Items.ultimate_solar_panel);
         API.driver.add((Item)Items.quantum_solar_panel);
+        API.driver.add((Item)Items.iron_inventory);
+        API.driver.add((Item)Items.diamond_inventory);
     }
 
 }

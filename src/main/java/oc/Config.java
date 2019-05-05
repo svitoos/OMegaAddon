@@ -29,6 +29,10 @@ public class Config extends Configuration {
     public static int QUANTUM_SOLAR_PANEL_NIGHT_PER_TICK;
     public static int QUANTUM_SOLAR_PANEL_TIER;
     public static boolean QUANTUM_SOLAR_PANEL_CHARGE_TOOL;
+    //
+    public static int IRON_INVENTORY_TIER;
+    //
+    public static int DIAMOND_INVENTORY_TIER;
 
     public Config(File file) {
         super(file);
@@ -61,5 +65,9 @@ public class Config extends Configuration {
         QUANTUM_SOLAR_PANEL_NIGHT_PER_TICK = getInt("night_per_tick", "quantum_solar_panel", 512, Integer.MIN_VALUE, Integer.MAX_VALUE, "");
         QUANTUM_SOLAR_PANEL_TIER = getInt("tier", "quantum_solar_panel", 3, Integer.MIN_VALUE, Integer.MAX_VALUE, "");
         QUANTUM_SOLAR_PANEL_CHARGE_TOOL = getBoolean("charge_tool", "quantum_solar_panel", true, "");
+        //
+        IRON_INVENTORY_TIER = getInt("tier", "iron_inventory", 2, 1, 3, "");
+        //
+        DIAMOND_INVENTORY_TIER= getInt("tier", "diamond_inventory", 3, 1, 3, "");
     }
 }
