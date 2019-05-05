@@ -23,8 +23,8 @@ public class UpgradeUltimateSolarPanelItem extends UpgradeAbstractSolarPanelItem
 
     @Override
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean p_77624_4_) {
-        addInformation(list, Config.HYBRID_SOLAR_PANEL_TIER, Config.HYBRID_SOLAR_PANEL_DAY_PER_TICK,
-                        Config.HYBRID_SOLAR_PANEL_NIGHT_PER_TICK, Config.HYBRID_SOLAR_PANEL_CHARGE_TOOL);
+        addInformation(list, Config.ULTIMATE_SOLAR_PANEL_TIER, Config.ULTIMATE_SOLAR_PANEL_DAY_PER_TICK,
+                        Config.ULTIMATE_SOLAR_PANEL_NIGHT_PER_TICK, Config.ULTIMATE_SOLAR_PANEL_CHARGE_TOOL);
     }
 
     @Override
