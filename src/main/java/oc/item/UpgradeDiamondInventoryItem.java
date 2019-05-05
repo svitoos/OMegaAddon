@@ -28,7 +28,7 @@ public class UpgradeDiamondInventoryItem extends UpgradeAbstractInventoryItem {
 
     @Override
     public int tier(ItemStack stack) {
-        return Config.DIAMOND_INVENTORY_TIER;
+        return Config.DIAMOND_INVENTORY_TIER - 1;
     }
 
     @Override
