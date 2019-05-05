@@ -4,6 +4,7 @@ import li.cil.oc.api.CreativeTab;
 import li.cil.oc.api.driver.EnvironmentProvider;
 import li.cil.oc.api.driver.item.HostAware;
 import li.cil.oc.api.driver.item.Slot;
+import li.cil.oc.api.internal.Drone;
 import li.cil.oc.api.internal.Robot;
 import li.cil.oc.api.network.EnvironmentHost;
 import li.cil.oc.api.network.ManagedEnvironment;
@@ -69,6 +70,6 @@ public class UpgradeAdvancedGeolyzerItem extends Item implements li.cil.oc.api.d
     @Override
     public boolean worksWith(ItemStack stack, Class<? extends EnvironmentHost> host) {
         boolean b = worksWith(stack);
-        return b && Robot.class.isAssignableFrom(host);
+        return b && Robot.class.isAssignableFrom(host) || Drone.class.isAssignableFrom(host);
     }
 }

@@ -1,6 +1,7 @@
 package oc.item;
 
 import li.cil.oc.api.CreativeTab;
+import li.cil.oc.api.internal.Drone;
 import li.cil.oc.api.internal.Robot;
 import li.cil.oc.api.network.EnvironmentHost;
 import li.cil.oc.api.network.ManagedEnvironment;
@@ -36,7 +37,7 @@ public class UpgradeUltimateSolarPanelItem extends UpgradeAbstractSolarPanelItem
 
     @Override
     public boolean worksWith(ItemStack stack, Class<? extends EnvironmentHost> host) {
-        return worksWith(stack) && Robot.class.isAssignableFrom(host);
+        return worksWith(stack) && Robot.class.isAssignableFrom(host) || Drone.class.isAssignableFrom(host);
     }
 
     @Override
