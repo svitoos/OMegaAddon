@@ -7,7 +7,6 @@ import li.cil.oc.api.network.EnvironmentHost;
 import li.cil.oc.api.network.ManagedEnvironment;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.StatCollector;
 import oc.Config;
 import oc.Omega;
 import oc.driver.DriverHybridSolarPanel;
@@ -24,10 +23,8 @@ public class UpgradeHybridSolarPanelItem extends UpgradeAbstractSolarPanelItem {
 
     @Override
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean p_77624_4_) {
-        list.add(StatCollector.translateToLocal("lore.tier.name") + " " + Config.HYBRID_SOLAR_PANEL_TIER);
-        list.add(StatCollector.translateToLocal("lore.day_output.name") + " " + Config.HYBRID_SOLAR_PANEL_DAY_PER_TICK);
-        list.add(StatCollector.translateToLocal("lore.night_output.name") + " " + Config.HYBRID_SOLAR_PANEL_NIGHT_PER_TICK);
-        list.add(StatCollector.translateToLocal("lore.can_charge.name") + " " + (Config.HYBRID_SOLAR_PANEL_CHARGE_TOOL ? "Yes" : "No"));
+        addInformation(list, Config.HYBRID_SOLAR_PANEL_TIER, Config.HYBRID_SOLAR_PANEL_DAY_PER_TICK,
+                Config.HYBRID_SOLAR_PANEL_NIGHT_PER_TICK, Config.HYBRID_SOLAR_PANEL_CHARGE_TOOL);
     }
 
     @Override

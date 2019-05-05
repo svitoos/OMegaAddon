@@ -1,0 +1,18 @@
+[
+{
+  "modid": "omega",
+  "name": "OmegaAddon",
+  "description": "",
+  "version": "",
+  "credits": "Created by NEO",
+  "logoFile": "",
+  "mcversion": "1.7.10",
+  "url": "http://computercraft.ru",
+  "updateUrl": "",
+  "authors": [ "NEO", "Alex"],
+  "parent":"",
+  "screenshots": [],
+  "dependencies": [
+	 "mod_MinecraftForge"
+]
+}

@@ -10,8 +10,8 @@ import oc.item.Items;
 public class Omega {
 
     public static final String MOD_ID = "omega";
-    public static final String MOD_NAME = "Omega";
-    public static final String MOD_VERSION = "0.12.0";
+    public static final String MOD_NAME = "OmegaAddon";
+    public static final String MOD_VERSION = "@VERSION@";
     public static Config config;
 
     @Mod.EventHandler
