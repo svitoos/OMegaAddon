@@ -47,18 +47,18 @@ public class Config extends Configuration {
         ADVANCED_SOLAR_PANEL_TIER = getInt("tier", "advanced_solar_panel", 2, Integer.MIN_VALUE, Integer.MAX_VALUE, "");
         ADVANCED_SOLAR_PANEL_CHARGE_TOOL = getBoolean("charge_tool", "advanced_solar_panel", false, "");
         //
-        HYBRID_SOLAR_PANEL_DAY_PER_TICK = getInt("day_per_tick", "hybrid_solar_panel", 4, Integer.MIN_VALUE, Integer.MAX_VALUE, "");
+        HYBRID_SOLAR_PANEL_DAY_PER_TICK = getInt("day_per_tick", "hybrid_solar_panel", 16, Integer.MIN_VALUE, Integer.MAX_VALUE, "");
         HYBRID_SOLAR_PANEL_NIGHT_PER_TICK = getInt("night_per_tick", "hybrid_solar_panel", 2, Integer.MIN_VALUE, Integer.MAX_VALUE, "");
         HYBRID_SOLAR_PANEL_TIER = getInt("tier", "hybrid_solar_panel", 3, Integer.MIN_VALUE, Integer.MAX_VALUE, "");
         HYBRID_SOLAR_PANEL_CHARGE_TOOL = getBoolean("charge_tool", "hybrid_solar_panel", false, "");
         //
-        ULTIMATE_SOLAR_PANEL_DAY_PER_TICK = getInt("day_per_tick", "ultimate_solar_panel", 8, Integer.MIN_VALUE, Integer.MAX_VALUE, "");
-        ULTIMATE_SOLAR_PANEL_NIGHT_PER_TICK = getInt("night_per_tick", "ultimate_solar_panel", 4, Integer.MIN_VALUE, Integer.MAX_VALUE, "");
+        ULTIMATE_SOLAR_PANEL_DAY_PER_TICK = getInt("day_per_tick", "ultimate_solar_panel", 128, Integer.MIN_VALUE, Integer.MAX_VALUE, "");
+        ULTIMATE_SOLAR_PANEL_NIGHT_PER_TICK = getInt("night_per_tick", "ultimate_solar_panel", 16, Integer.MIN_VALUE, Integer.MAX_VALUE, "");
         ULTIMATE_SOLAR_PANEL_TIER = getInt("tier", "ultimate_solar_panel", 3, Integer.MIN_VALUE, Integer.MAX_VALUE, "");
-        ULTIMATE_SOLAR_PANEL_CHARGE_TOOL = getBoolean("charge_tool", "ultimate_solar_panel", false, "");
+        ULTIMATE_SOLAR_PANEL_CHARGE_TOOL = getBoolean("charge_tool", "ultimate_solar_panel", true, "");
         //
-        QUANTUM_SOLAR_PANEL_DAY_PER_TICK = getInt("day_per_tick", "quantum_solar_panel", 64, Integer.MIN_VALUE, Integer.MAX_VALUE, "");
-        QUANTUM_SOLAR_PANEL_NIGHT_PER_TICK = getInt("night_per_tick", "quantum_solar_panel", 32, Integer.MIN_VALUE, Integer.MAX_VALUE, "");
+        QUANTUM_SOLAR_PANEL_DAY_PER_TICK = getInt("day_per_tick", "quantum_solar_panel", 1024, Integer.MIN_VALUE, Integer.MAX_VALUE, "");
+        QUANTUM_SOLAR_PANEL_NIGHT_PER_TICK = getInt("night_per_tick", "quantum_solar_panel", 512, Integer.MIN_VALUE, Integer.MAX_VALUE, "");
         QUANTUM_SOLAR_PANEL_TIER = getInt("tier", "quantum_solar_panel", 3, Integer.MIN_VALUE, Integer.MAX_VALUE, "");
         QUANTUM_SOLAR_PANEL_CHARGE_TOOL = getBoolean("charge_tool", "quantum_solar_panel", true, "");
     }
