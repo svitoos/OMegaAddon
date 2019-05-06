@@ -28,10 +28,10 @@ public class Omega {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
+        OCSettings.load();
         Items.init();
         Drivers.init();
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
     }
-
 }
 
