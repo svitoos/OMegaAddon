@@ -35,7 +35,7 @@ public class DriverAbstractAdvancedSolarPanel extends ManagedEnvironment {
         this.host = host;
         this.night_energy_per_tick = night_energy_per_tick;
         this.day_energy_per_tick = day_energy_per_tick;
-        this.charge_tool = charge_tool;
+        this.charge_tool = charge_tool && host instanceof Robot;
     }
 
     @Override
@@ -125,7 +125,7 @@ public class DriverAbstractAdvancedSolarPanel extends ManagedEnvironment {
     @Override
     public void load(NBTTagCompound nbt) {
         super.load(nbt);
-        is_charge_tool = nbt.getBoolean("is_charge_tool");
+        is_charge_tool = nbt.getBoolean("is_charge_tool") && charge_tool;
     }
 
     @Override
