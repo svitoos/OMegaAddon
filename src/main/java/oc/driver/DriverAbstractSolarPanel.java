@@ -18,24 +18,24 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenDesert;
 import oc.OCSettings;
 
-public class DriverAbstractAdvancedSolarPanel extends ManagedEnvironment {
+public class DriverAbstractSolarPanel extends ManagedEnvironment {
 
     private static final int checkPeriod = 100;
 
     private final EnvironmentHost host;
-    private final int night_energy_per_tick;
-    private final int day_energy_per_tick;
-    private final boolean charge_tool;
-    private boolean is_charge_tool;
+    private final boolean chargedTool;
+    private boolean isChargeTool;
+    private final int nightEnergyPerTick;
+    private final int dayEnergyPerTick;
     private int ticksUntilCheck;
-    private int energy_per_tick;
+    private int energyPerTick;
 
-    public DriverAbstractAdvancedSolarPanel(EnvironmentHost host, boolean charge_tool, int night_energy_per_tick, int day_energy_per_tick) {
+    public DriverAbstractSolarPanel(EnvironmentHost host, boolean chargedTool, int night_energy_per_tick, int day_energy_per_tick) {
         this.setNode(Network.newNode(this, Visibility.Network).withComponent("solar_panel").withConnector().create());
         this.host = host;
-        this.night_energy_per_tick = night_energy_per_tick;
-        this.day_energy_per_tick = day_energy_per_tick;
-        this.charge_tool = charge_tool && host instanceof Robot;
+        this.nightEnergyPerTick = night_energy_per_tick;
+        this.dayEnergyPerTick = day_energy_per_tick;
+        this.chargedTool = chargedTool && host instanceof Robot;
     }
 
     @Override
@@ -45,41 +45,41 @@ public class DriverAbstractAdvancedSolarPanel extends ManagedEnvironment {
 
     @Callback(doc = "function(activate:boolean):boolean; Activate or deactivate tool charging. Returns whether the panel is currently charging tool.")
     public Object[] chargeTool(Context context, Arguments arguments) {
-        if(charge_tool) {
-            is_charge_tool = arguments.checkBoolean(0);
+        if(chargedTool) {
+            isChargeTool = arguments.checkBoolean(0);
         }
-        return new Object[]{is_charge_tool};
+        return new Object[]{isChargeTool};
     }
 
     @Callback(doc = "function():number --  Returns the day energy output per tick.")
     public Object[] getDayEnergyPerTick(Context context, Arguments arguments) {
-        return new Object[]{day_energy_per_tick};
+        return new Object[]{dayEnergyPerTick};
     }
 
     @Callback(doc = "function():number --  Returns the night energy output per tick.")
     public Object[] getNightEnergyPerTick(Context context, Arguments arguments) {
-        return new Object[]{night_energy_per_tick};
+        return new Object[]{nightEnergyPerTick};
     }
 
 
     @Callback(doc = "function():boolean -- Returns whether the panel can charge tools.")
     public Object[] canChargeTool(Context context, Arguments arguments) {
-        return new Object[]{charge_tool};
+        return new Object[]{chargedTool};
     }
 
     @Callback(doc = "function():boolean -- Returns whether the panel is currently generating energy.")
     public Object[] isActive(Context context, Arguments arguments) {
-        return new Object[]{energy_per_tick > 0};
+        return new Object[]{energyPerTick > 0};
     }
 
     @Callback(doc = "function():boolean -- Returns whether the panel is currently charging tool.")
     public Object[] isChargeTool(Context context, Arguments arguments) {
-        return new Object[]{is_charge_tool};
+        return new Object[]{isChargeTool};
     }
 
     @Callback(doc = "function():number --  Returns the energy output per tick.")
     public Object[] getEnergyPerTick(Context context, Arguments arguments) {
-        return new Object[]{energy_per_tick};
+        return new Object[]{energyPerTick};
     }
 
     private void updateOutputEnergy() {
@@ -92,9 +92,9 @@ public class DriverAbstractAdvancedSolarPanel extends ManagedEnvironment {
             (world.getWorldChunkManager().getBiomeGenAt(x, z) instanceof BiomeGenDesert
                 || (!world.isRaining() && !world.isThundering()));
         if (canSeeSky) {
-            energy_per_tick = isSunVisible ? day_energy_per_tick : night_energy_per_tick;
+            energyPerTick = isSunVisible ? dayEnergyPerTick : nightEnergyPerTick;
         } else {
-            energy_per_tick = 0;
+            energyPerTick = 0;
         }
     }
 
@@ -105,17 +105,17 @@ public class DriverAbstractAdvancedSolarPanel extends ManagedEnvironment {
             ticksUntilCheck = checkPeriod;
             updateOutputEnergy();
         }
-        if (energy_per_tick > 0 ) {
-            if(!is_charge_tool) {
+        if (energyPerTick > 0 ) {
+            if(!isChargeTool) {
                 Connector connector = (Connector) node();
-                connector.tryChangeBuffer(energy_per_tick);
+                connector.tryChangeBuffer(energyPerTick);
             } else {
                 Robot robot = (Robot) host;
                 IInventory inventory = robot.equipmentInventory();
                 ItemStack tooltip = inventory.getStackInSlot(0);
                 if(tooltip != null) {
                     if(tooltip.getItem() instanceof IElectricItem) {
-                        ElectricItem.manager.charge(tooltip, toEu(energy_per_tick), Integer.MAX_VALUE /*charge any tiers items*/, true, false);
+                        ElectricItem.manager.charge(tooltip, toEu(energyPerTick), Integer.MAX_VALUE /*charge any tiers items*/, true, false);
                     }
                 }
             }
@@ -125,13 +125,13 @@ public class DriverAbstractAdvancedSolarPanel extends ManagedEnvironment {
     @Override
     public void load(NBTTagCompound nbt) {
         super.load(nbt);
-        is_charge_tool = nbt.getBoolean("is_charge_tool") && charge_tool;
+        isChargeTool = nbt.getBoolean("isChargeTool") && chargedTool;
     }
 
     @Override
     public void save(NBTTagCompound nbt) {
         super.save(nbt);
-        nbt.setBoolean("is_charge_tool", is_charge_tool);
+        nbt.setBoolean("isChargeTool", isChargeTool);
     }
 
     static private double toEu(double value) {

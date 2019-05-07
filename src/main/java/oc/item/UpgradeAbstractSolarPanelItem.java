@@ -9,7 +9,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StatCollector;
-import oc.driver.DriverAbstractAdvancedSolarPanel;
+import oc.driver.DriverAbstractSolarPanel;
 
 import java.util.List;
 
@@ -25,7 +25,7 @@ public abstract class UpgradeAbstractSolarPanelItem extends Item implements li.c
 
     @Override
     public Class<?> getEnvironment(ItemStack stack) {
-        return DriverAbstractAdvancedSolarPanel.class;
+        return DriverAbstractSolarPanel.class;
     }
 
     @Override
